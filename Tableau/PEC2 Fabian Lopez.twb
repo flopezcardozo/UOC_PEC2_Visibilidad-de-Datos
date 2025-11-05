@@ -1,0 +1,1342 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20252.25.1003.1601                               -->
+<workbook original-version='18.1' source-build='2025.2.4 (20252.25.1003.1601)' source-platform='win' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <Extensions />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <_.fcp.VizExtensions.true...VizExtensions />
+    <_.fcp.VizExtensionsDupEncodingUUID.true...VizExtensionsDupEncodingUUID />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <repository-location id='PEC2FabianLopez' path='/workbooks' revision='1.0' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='life-expectancy' inline='true' name='federated.0rxc3le1w9nzpm12l4iqx0ty9tkp' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='life-expectancy' name='textscan.0068xps0h5h6qp191limx0bfgwyu'>
+            <connection class='textscan' directory='C:/UOC/Semestre 2/Visualización de Datos/life-expectancy' filename='life-expectancy.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0068xps0h5h6qp191limx0bfgwyu' name='life-expectancy.csv' table='[life-expectancy#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='es_UY'>
+            <column datatype='string' name='Entity' ordinal='0' />
+            <column datatype='string' name='Code' ordinal='1' />
+            <column datatype='integer' name='Year' ordinal='2' />
+            <column datatype='string' name='Period life expectancy at birth' ordinal='3' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[life-expectancy.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;es&quot;</attribute>
+              <attribute datatype='string' name='decimal-char'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;es_UY&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot;.&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Entity</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Entity]</local-name>
+            <parent-name>[life-expectancy.csv]</parent-name>
+            <remote-alias>Entity</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Code</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Code]</local-name>
+            <parent-name>[life-expectancy.csv]</parent-name>
+            <remote-alias>Code</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year]</local-name>
+            <parent-name>[life-expectancy.csv]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Period life expectancy at birth</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Period life expectancy at birth]</local-name>
+            <parent-name>[life-expectancy.csv]</parent-name>
+            <remote-alias>Period life expectancy at birth</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Calculated Life Expectancy' datatype='real' name='[Calculation_1027665142454919168]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='FLOAT(REPLACE([Period life expectancy at birth], &quot;,&quot;, &quot;.&quot;))' />
+      </column>
+      <column caption='Región' datatype='string' name='[Calculation_1027665142456176641]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='// ÁFRICA&#13;&#10;IF CONTAINS([Entity], &quot;Nigeria&quot;) OR CONTAINS([Entity], &quot;Ethiopia&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Egypt&quot;) OR CONTAINS([Entity], &quot;Congo&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;South Africa&quot;) OR CONTAINS([Entity], &quot;Kenya&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Tanzania&quot;) OR CONTAINS([Entity], &quot;Uganda&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Algeria&quot;) OR CONTAINS([Entity], &quot;Sudan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Morocco&quot;) OR CONTAINS([Entity], &quot;Ghana&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Mozambique&quot;) OR CONTAINS([Entity], &quot;Madagascar&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cameroon&quot;) OR CONTAINS([Entity], &quot;Angola&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Mali&quot;) OR CONTAINS([Entity], &quot;Niger&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Senegal&quot;) OR CONTAINS([Entity], &quot;Somalia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Chad&quot;) OR CONTAINS([Entity], &quot;Zimbabwe&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Benin&quot;) OR CONTAINS([Entity], &quot;Burundi&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Burkina Faso&quot;) OR CONTAINS([Entity], &quot;Botswana&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cape Verde&quot;) OR CONTAINS([Entity], &quot;Central African Republic&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Comoros&quot;) OR CONTAINS([Entity], &quot;Cote&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Djibouti&quot;) OR CONTAINS([Entity], &quot;Equatorial Guinea&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Eritrea&quot;) OR CONTAINS([Entity], &quot;Eswatini&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Gabon&quot;) OR CONTAINS([Entity], &quot;Guinea&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Lesotho&quot;) OR CONTAINS([Entity], &quot;Liberia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Libya&quot;) OR CONTAINS([Entity], &quot;Malawi&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Mauritania&quot;) OR CONTAINS([Entity], &quot;Mauritius&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Mayotte&quot;) OR CONTAINS([Entity], &quot;Namibia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Reunion&quot;) OR CONTAINS([Entity], &quot;Rwanda&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Sao Tome&quot;) OR CONTAINS([Entity], &quot;Seychelles&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Sierra Leone&quot;) OR CONTAINS([Entity], &quot;Togo&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Tunisia&quot;) OR CONTAINS([Entity], &quot;Western Sahara&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Zambia&quot;) THEN &quot;Africa&quot;&#13;&#10;&#13;&#10;// SUR DE ASIA&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Afghanistan&quot;) OR CONTAINS([Entity], &quot;Bangladesh&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;India&quot;) OR CONTAINS([Entity], &quot;Pakistan&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Nepal&quot;) OR CONTAINS([Entity], &quot;Sri Lanka&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Bhutan&quot;) OR CONTAINS([Entity], &quot;Maldives&quot;) THEN &quot;South Asia&quot;&#13;&#10;&#13;&#10;// ESTE DE ASIA&#13;&#10;ELSEIF CONTAINS([Entity], &quot;China&quot;) OR CONTAINS([Entity], &quot;Japan&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;South Korea&quot;) OR CONTAINS([Entity], &quot;North Korea&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Taiwan&quot;) OR CONTAINS([Entity], &quot;Mongolia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Hong Kong&quot;) OR CONTAINS([Entity], &quot;Macao&quot;) THEN &quot;East Asia&quot;&#13;&#10;&#13;&#10;// SUDESTE ASIÁTICO&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Indonesia&quot;) OR CONTAINS([Entity], &quot;Thailand&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Vietnam&quot;) OR CONTAINS([Entity], &quot;Philippines&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Malaysia&quot;) OR CONTAINS([Entity], &quot;Singapore&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cambodia&quot;) OR CONTAINS([Entity], &quot;Laos&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Myanmar&quot;) OR CONTAINS([Entity], &quot;Brunei&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;East Timor&quot;) THEN &quot;Southeast Asia&quot;&#13;&#10;&#13;&#10;// EUROPA OCCIDENTAL&#13;&#10;ELSEIF CONTAINS([Entity], &quot;France&quot;) OR CONTAINS([Entity], &quot;Germany&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;United Kingdom&quot;) OR CONTAINS([Entity], &quot;Italy&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Spain&quot;) OR CONTAINS([Entity], &quot;Netherlands&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Belgium&quot;) OR CONTAINS([Entity], &quot;Switzerland&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Austria&quot;) OR CONTAINS([Entity], &quot;Portugal&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Sweden&quot;) OR CONTAINS([Entity], &quot;Norway&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Denmark&quot;) OR CONTAINS([Entity], &quot;Finland&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Ireland&quot;) OR CONTAINS([Entity], &quot;Greece&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Iceland&quot;) OR CONTAINS([Entity], &quot;Luxembourg&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Malta&quot;) OR CONTAINS([Entity], &quot;Monaco&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Liechtenstein&quot;) OR CONTAINS([Entity], &quot;San Marino&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Vatican&quot;) OR CONTAINS([Entity], &quot;Andorra&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;England&quot;) OR CONTAINS([Entity], &quot;Scotland&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Gibraltar&quot;) OR CONTAINS([Entity], &quot;Faroe Islands&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Greenland&quot;) OR CONTAINS([Entity], &quot;Isle of Man&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Jersey&quot;) OR CONTAINS([Entity], &quot;Guernsey&quot;) THEN &quot;Western Europe&quot;&#13;&#10;&#13;&#10;// EUROPA ORIENTAL&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Poland&quot;) OR CONTAINS([Entity], &quot;Russia&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Ukraine&quot;) OR CONTAINS([Entity], &quot;Romania&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Czech&quot;) OR CONTAINS([Entity], &quot;Hungary&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Bulgaria&quot;) OR CONTAINS([Entity], &quot;Serbia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Belarus&quot;) OR CONTAINS([Entity], &quot;Croatia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Bosnia&quot;) OR CONTAINS([Entity], &quot;Albania&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Lithuania&quot;) OR CONTAINS([Entity], &quot;Latvia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Estonia&quot;) OR CONTAINS([Entity], &quot;Slovenia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Slovakia&quot;) OR CONTAINS([Entity], &quot;Macedonia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Moldova&quot;) OR CONTAINS([Entity], &quot;Montenegro&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Kosovo&quot;) OR CONTAINS([Entity], &quot;Cyprus&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Armenia&quot;) OR CONTAINS([Entity], &quot;Azerbaijan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Georgia&quot;) THEN &quot;Eastern Europe&quot;&#13;&#10;&#13;&#10;// NORTEAMÉRICA&#13;&#10;ELSEIF CONTAINS([Entity], &quot;United States&quot;) OR CONTAINS([Entity], &quot;Canada&quot;) THEN &quot;North America&quot;&#13;&#10;&#13;&#10;// LATINOAMÉRICA Y CARIBE&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Mexico&quot;) OR CONTAINS([Entity], &quot;Brazil&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Argentina&quot;) OR CONTAINS([Entity], &quot;Chile&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Colombia&quot;) OR CONTAINS([Entity], &quot;Peru&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Venezuela&quot;) OR CONTAINS([Entity], &quot;Uruguay&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Ecuador&quot;) OR CONTAINS([Entity], &quot;Bolivia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Paraguay&quot;) OR CONTAINS([Entity], &quot;Cuba&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Dominican Republic&quot;) OR CONTAINS([Entity], &quot;Guatemala&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Honduras&quot;) OR CONTAINS([Entity], &quot;Nicaragua&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Costa Rica&quot;) OR CONTAINS([Entity], &quot;Panama&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;El Salvador&quot;) OR CONTAINS([Entity], &quot;Haiti&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Jamaica&quot;) OR CONTAINS([Entity], &quot;Trinidad&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Bahamas&quot;) OR CONTAINS([Entity], &quot;Barbados&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Belize&quot;) OR CONTAINS([Entity], &quot;Guyana&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Suriname&quot;) OR CONTAINS([Entity], &quot;Puerto Rico&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Guadeloupe&quot;) OR CONTAINS([Entity], &quot;Martinique&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;French Guiana&quot;) OR CONTAINS([Entity], &quot;Aruba&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Curacao&quot;) OR CONTAINS([Entity], &quot;Bonaire&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Anguilla&quot;) OR CONTAINS([Entity], &quot;Antigua&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Dominica&quot;) OR CONTAINS([Entity], &quot;Grenada&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Saint Kitts&quot;) OR CONTAINS([Entity], &quot;Saint Lucia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Saint Vincent&quot;) OR CONTAINS([Entity], &quot;Saint Martin&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Saint Barthelemy&quot;) OR CONTAINS([Entity], &quot;Sint Maarten&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cayman Islands&quot;) OR CONTAINS([Entity], &quot;British Virgin&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Turks and Caicos&quot;) OR CONTAINS([Entity], &quot;Montserrat&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Falkland Islands&quot;) THEN &quot;Latin America &amp; Caribbean&quot;&#13;&#10;&#13;&#10;// OCEANÍA&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Australia&quot;) OR CONTAINS([Entity], &quot;New Zealand&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Papua New Guinea&quot;) OR CONTAINS([Entity], &quot;Fiji&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Solomon Islands&quot;) OR CONTAINS([Entity], &quot;Vanuatu&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;New Caledonia&quot;) OR CONTAINS([Entity], &quot;French Polynesia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Samoa&quot;) OR CONTAINS([Entity], &quot;American Samoa&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Guam&quot;) OR CONTAINS([Entity], &quot;Kiribati&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Marshall Islands&quot;) OR CONTAINS([Entity], &quot;Micronesia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Nauru&quot;) OR CONTAINS([Entity], &quot;Palau&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Tonga&quot;) OR CONTAINS([Entity], &quot;Tuvalu&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cook Islands&quot;) OR CONTAINS([Entity], &quot;Niue&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Tokelau&quot;) OR CONTAINS([Entity], &quot;Wallis&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Northern Mariana&quot;) THEN &quot;Oceania&quot;&#13;&#10;&#13;&#10;// MEDIO ORIENTE&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Saudi Arabia&quot;) OR CONTAINS([Entity], &quot;Iran&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Iraq&quot;) OR CONTAINS([Entity], &quot;Turkey&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Israel&quot;) OR CONTAINS([Entity], &quot;Jordan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Lebanon&quot;) OR CONTAINS([Entity], &quot;Syria&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Yemen&quot;) OR CONTAINS([Entity], &quot;United Arab Emirates&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Kuwait&quot;) OR CONTAINS([Entity], &quot;Oman&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Qatar&quot;) OR CONTAINS([Entity], &quot;Bahrain&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Palestine&quot;) THEN &quot;Middle East&quot;&#13;&#10;&#13;&#10;// ASIA CENTRAL&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Kazakhstan&quot;) OR CONTAINS([Entity], &quot;Uzbekistan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Turkmenistan&quot;) OR CONTAINS([Entity], &quot;Tajikistan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Kyrgyzstan&quot;) THEN &quot;Central Asia&quot;&#13;&#10;&#13;&#10;ELSE &quot;Other&quot;&#13;&#10;END' />
+      </column>
+      <column caption='Años Ganados' datatype='real' name='[Calculation_1027665142458601476]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{ FIXED [Calculation_1027665142456176641] : &#13;&#10;  AVG(IF [Year] &gt;= 2020 THEN [Calculation_1027665142454919168] END) &#13;&#10;  - &#13;&#10;  AVG(IF [Year] &lt;= 1950 THEN [Calculation_1027665142454919168] END) &#13;&#10;}' />
+      </column>
+      <column caption='Categoría Crecimiento' datatype='string' name='[Calculation_1027665142458912773]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [Calculation_1027665142458601476] &gt;= 40 THEN &quot;Alto crecimiento (&gt;40 años)&quot;&#13;&#10;ELSEIF [Calculation_1027665142458601476] &gt;= 30 THEN &quot;Crecimiento moderado (30-40 años)&quot;&#13;&#10;ELSEIF [Calculation_1027665142458601476] &gt;= 20 THEN &quot;Crecimiento bajo (20-30 años)&quot;&#13;&#10;ELSE &quot;Crecimiento mínimo (&lt;20 años)&quot;&#13;&#10;END' />
+      </column>
+      <column caption='Promedio Años Ganados 1900' datatype='real' name='[Calculation_1027665142820704265]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='// Promedio 1900 (hasta 1900)&#13;&#10;{ FIXED [Entity], [Calculation_1027665142456176641]: &#13;&#10;  AVG(IF [Year] &lt;= 1900 THEN [Calculation_1027665142454919168] END)&#13;&#10;}' />
+      </column>
+      <column caption='Promedio Años Ganados 1950' datatype='real' name='[Calculation_1027665142821150730]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='// Promedio 1950 (1901-1950)&#13;&#10;{ FIXED [Entity], [Calculation_1027665142456176641]: &#13;&#10;  AVG(IF [Year] &gt; 1900 AND [Year] &lt;= 1950 THEN [Calculation_1027665142454919168] END)&#13;&#10;}' />
+      </column>
+      <column caption='Categoría Crecimiento 1950' datatype='string' name='[Calculation_1027665142821470219]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [Calculation_1027665142825021455] &gt;= 30 THEN &quot;Alto crecimiento (&gt;30 años)&quot;&#13;&#10;ELSEIF [Calculation_1027665142825021455] &gt;= 20 THEN &quot;Crecimiento moderado (20-30 años)&quot;&#13;&#10;ELSEIF [Calculation_1027665142825021455] &gt;= 10 THEN &quot;Crecimiento bajo (10-20 años)&quot;&#13;&#10;ELSE &quot;Crecimiento mínimo (&lt;10 años)&quot;&#13;&#10;END' />
+      </column>
+      <column caption='Promedio Años Ganados 2000' datatype='real' name='[Calculation_1027665142822326284]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='// Promedio 2000 (1951-2000)&#13;&#10;{ FIXED [Entity], [Calculation_1027665142456176641]: &#13;&#10;  AVG(IF [Year] &gt; 1950 AND [Year] &lt;= 2000 THEN [Calculation_1027665142454919168] END)&#13;&#10;}' />
+      </column>
+      <column caption='Categoría Crecimiento 2000' datatype='string' name='[Calculation_1027665142822588429]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [Calculation_1027665142826602512] &gt;= 30 THEN &quot;Alto crecimiento (&gt;30 años)&quot;&#13;&#10;ELSEIF [Calculation_1027665142826602512] &gt;= 20 THEN &quot;Crecimiento moderado (20-30 años)&quot;&#13;&#10;ELSEIF [Calculation_1027665142826602512] &gt;= 10 THEN &quot;Crecimiento bajo (10-20 años)&quot;&#13;&#10;ELSE &quot;Crecimiento mínimo (&lt;10 años)&quot;&#13;&#10;END' />
+      </column>
+      <column caption='Promedio Años Ganados 2023' datatype='real' name='[Calculation_1027665142824865806]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='// Promedio 2001-2023&#13;&#10;{ FIXED [Entity], [Calculation_1027665142456176641]: &#13;&#10;  AVG(IF [Year] &gt; 2000 AND [Year] &lt;= 2023 THEN [Calculation_1027665142454919168] END)&#13;&#10;}' />
+      </column>
+      <column caption='Incrementos 1950' datatype='real' name='[Calculation_1027665142825021455]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='// Años Ganados 1950 (vs período anterior)&#13;&#10;[Calculation_1027665142821150730] - [Calculation_1027665142820704265]' />
+      </column>
+      <column caption='Incrementos 2000' datatype='real' name='[Calculation_1027665142826602512]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='// Años Ganados 1950 (vs período anterior)&#13;&#10;[Calculation_1027665142822326284] - [Calculation_1027665142821150730]' />
+      </column>
+      <column aggregation='Avg' caption='Años Ganados x País' datatype='real' name='[Calculation_1448188758054383616]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{ FIXED [Entity]: &#13;&#10;  MAX([Calculation_1027665142454919168]) - MIN([Calculation_1027665142454919168])&#13;&#10;}' />
+      </column>
+      <column caption='Mundo' datatype='string' name='[Calculation_1448188758230417409]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='&quot;Mundo&quot;' />
+      </column>
+      <column caption='Cant Datos Recogidos x Región' datatype='real' name='[Calculation_193091837084725248]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{ FIXED [Calculation_1027665142456176641]: AVG({ FIXED [Entity]: MAX([Calculation_1027665142454919168]) - MIN([Calculation_1027665142454919168]) }) }' />
+      </column>
+      <column caption='Life expectancy' datatype='string' name='[Period life expectancy at birth]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+      <column caption='life-expectancy.csv' datatype='table' name='[__tableau_internal_object_id__].[life-expectancy.csv_B768C9EC34AE4495802CAB0BA36A38EC]' role='measure' type='quantitative' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='es_ES' class='hyper' dbname='C:/UOC/Semestre 2/Visualización de Datos/PEC2/life-expectancy.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='11/04/2025 02:48:22 AM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <refresh>
+            <refresh-event add-from-file-path='life-expectancy' increment-value='%null%' refresh-type='create' rows-inserted='21565' timestamp-start='2025-11-04 02:48:22.608' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Entity</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Entity]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Entity</remote-alias>
+              <ordinal>0</ordinal>
+              <family>life-expectancy.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>315</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <object-id>[life-expectancy.csv_B768C9EC34AE4495802CAB0BA36A38EC]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Code</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Code]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Code</remote-alias>
+              <ordinal>1</ordinal>
+              <family>life-expectancy.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>284</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <object-id>[life-expectancy.csv_B768C9EC34AE4495802CAB0BA36A38EC]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Year</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Year]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Year</remote-alias>
+              <ordinal>2</ordinal>
+              <family>life-expectancy.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>339</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[life-expectancy.csv_B768C9EC34AE4495802CAB0BA36A38EC]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Period life expectancy at birth</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Period life expectancy at birth]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Period life expectancy at birth</remote-alias>
+              <ordinal>3</ordinal>
+              <family>life-expectancy.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>18612</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <object-id>[life-expectancy.csv_B768C9EC34AE4495802CAB0BA36A38EC]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;República Oriental de Uruguay&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <object-graph>
+        <objects>
+          <object caption='life-expectancy.csv' id='life-expectancy.csv_B768C9EC34AE4495802CAB0BA36A38EC'>
+            <properties context=''>
+              <relation connection='textscan.0068xps0h5h6qp191limx0bfgwyu' name='life-expectancy.csv' table='[life-expectancy#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='es_UY'>
+                  <column datatype='string' name='Entity' ordinal='0' />
+                  <column datatype='string' name='Code' ordinal='1' />
+                  <column datatype='integer' name='Year' ordinal='2' />
+                  <column datatype='string' name='Period life expectancy at birth' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Alluvial Diagram'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Life Expectancy Evolution Century XX</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='life-expectancy' name='federated.0rxc3le1w9nzpm12l4iqx0ty9tkp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0rxc3le1w9nzpm12l4iqx0ty9tkp'>
+            <column caption='Calculated Life Expectancy' datatype='real' name='[Calculation_1027665142454919168]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='FLOAT(REPLACE([Period life expectancy at birth], &quot;,&quot;, &quot;.&quot;))' />
+            </column>
+            <column caption='Región' datatype='string' name='[Calculation_1027665142456176641]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='// ÁFRICA&#13;&#10;IF CONTAINS([Entity], &quot;Nigeria&quot;) OR CONTAINS([Entity], &quot;Ethiopia&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Egypt&quot;) OR CONTAINS([Entity], &quot;Congo&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;South Africa&quot;) OR CONTAINS([Entity], &quot;Kenya&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Tanzania&quot;) OR CONTAINS([Entity], &quot;Uganda&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Algeria&quot;) OR CONTAINS([Entity], &quot;Sudan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Morocco&quot;) OR CONTAINS([Entity], &quot;Ghana&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Mozambique&quot;) OR CONTAINS([Entity], &quot;Madagascar&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cameroon&quot;) OR CONTAINS([Entity], &quot;Angola&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Mali&quot;) OR CONTAINS([Entity], &quot;Niger&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Senegal&quot;) OR CONTAINS([Entity], &quot;Somalia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Chad&quot;) OR CONTAINS([Entity], &quot;Zimbabwe&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Benin&quot;) OR CONTAINS([Entity], &quot;Burundi&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Burkina Faso&quot;) OR CONTAINS([Entity], &quot;Botswana&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cape Verde&quot;) OR CONTAINS([Entity], &quot;Central African Republic&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Comoros&quot;) OR CONTAINS([Entity], &quot;Cote&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Djibouti&quot;) OR CONTAINS([Entity], &quot;Equatorial Guinea&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Eritrea&quot;) OR CONTAINS([Entity], &quot;Eswatini&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Gabon&quot;) OR CONTAINS([Entity], &quot;Guinea&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Lesotho&quot;) OR CONTAINS([Entity], &quot;Liberia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Libya&quot;) OR CONTAINS([Entity], &quot;Malawi&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Mauritania&quot;) OR CONTAINS([Entity], &quot;Mauritius&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Mayotte&quot;) OR CONTAINS([Entity], &quot;Namibia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Reunion&quot;) OR CONTAINS([Entity], &quot;Rwanda&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Sao Tome&quot;) OR CONTAINS([Entity], &quot;Seychelles&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Sierra Leone&quot;) OR CONTAINS([Entity], &quot;Togo&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Tunisia&quot;) OR CONTAINS([Entity], &quot;Western Sahara&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Zambia&quot;) THEN &quot;Africa&quot;&#13;&#10;&#13;&#10;// SUR DE ASIA&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Afghanistan&quot;) OR CONTAINS([Entity], &quot;Bangladesh&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;India&quot;) OR CONTAINS([Entity], &quot;Pakistan&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Nepal&quot;) OR CONTAINS([Entity], &quot;Sri Lanka&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Bhutan&quot;) OR CONTAINS([Entity], &quot;Maldives&quot;) THEN &quot;South Asia&quot;&#13;&#10;&#13;&#10;// ESTE DE ASIA&#13;&#10;ELSEIF CONTAINS([Entity], &quot;China&quot;) OR CONTAINS([Entity], &quot;Japan&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;South Korea&quot;) OR CONTAINS([Entity], &quot;North Korea&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Taiwan&quot;) OR CONTAINS([Entity], &quot;Mongolia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Hong Kong&quot;) OR CONTAINS([Entity], &quot;Macao&quot;) THEN &quot;East Asia&quot;&#13;&#10;&#13;&#10;// SUDESTE ASIÁTICO&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Indonesia&quot;) OR CONTAINS([Entity], &quot;Thailand&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Vietnam&quot;) OR CONTAINS([Entity], &quot;Philippines&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Malaysia&quot;) OR CONTAINS([Entity], &quot;Singapore&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cambodia&quot;) OR CONTAINS([Entity], &quot;Laos&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Myanmar&quot;) OR CONTAINS([Entity], &quot;Brunei&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;East Timor&quot;) THEN &quot;Southeast Asia&quot;&#13;&#10;&#13;&#10;// EUROPA OCCIDENTAL&#13;&#10;ELSEIF CONTAINS([Entity], &quot;France&quot;) OR CONTAINS([Entity], &quot;Germany&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;United Kingdom&quot;) OR CONTAINS([Entity], &quot;Italy&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Spain&quot;) OR CONTAINS([Entity], &quot;Netherlands&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Belgium&quot;) OR CONTAINS([Entity], &quot;Switzerland&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Austria&quot;) OR CONTAINS([Entity], &quot;Portugal&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Sweden&quot;) OR CONTAINS([Entity], &quot;Norway&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Denmark&quot;) OR CONTAINS([Entity], &quot;Finland&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Ireland&quot;) OR CONTAINS([Entity], &quot;Greece&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Iceland&quot;) OR CONTAINS([Entity], &quot;Luxembourg&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Malta&quot;) OR CONTAINS([Entity], &quot;Monaco&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Liechtenstein&quot;) OR CONTAINS([Entity], &quot;San Marino&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Vatican&quot;) OR CONTAINS([Entity], &quot;Andorra&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;England&quot;) OR CONTAINS([Entity], &quot;Scotland&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Gibraltar&quot;) OR CONTAINS([Entity], &quot;Faroe Islands&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Greenland&quot;) OR CONTAINS([Entity], &quot;Isle of Man&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Jersey&quot;) OR CONTAINS([Entity], &quot;Guernsey&quot;) THEN &quot;Western Europe&quot;&#13;&#10;&#13;&#10;// EUROPA ORIENTAL&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Poland&quot;) OR CONTAINS([Entity], &quot;Russia&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Ukraine&quot;) OR CONTAINS([Entity], &quot;Romania&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Czech&quot;) OR CONTAINS([Entity], &quot;Hungary&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Bulgaria&quot;) OR CONTAINS([Entity], &quot;Serbia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Belarus&quot;) OR CONTAINS([Entity], &quot;Croatia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Bosnia&quot;) OR CONTAINS([Entity], &quot;Albania&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Lithuania&quot;) OR CONTAINS([Entity], &quot;Latvia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Estonia&quot;) OR CONTAINS([Entity], &quot;Slovenia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Slovakia&quot;) OR CONTAINS([Entity], &quot;Macedonia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Moldova&quot;) OR CONTAINS([Entity], &quot;Montenegro&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Kosovo&quot;) OR CONTAINS([Entity], &quot;Cyprus&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Armenia&quot;) OR CONTAINS([Entity], &quot;Azerbaijan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Georgia&quot;) THEN &quot;Eastern Europe&quot;&#13;&#10;&#13;&#10;// NORTEAMÉRICA&#13;&#10;ELSEIF CONTAINS([Entity], &quot;United States&quot;) OR CONTAINS([Entity], &quot;Canada&quot;) THEN &quot;North America&quot;&#13;&#10;&#13;&#10;// LATINOAMÉRICA Y CARIBE&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Mexico&quot;) OR CONTAINS([Entity], &quot;Brazil&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Argentina&quot;) OR CONTAINS([Entity], &quot;Chile&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Colombia&quot;) OR CONTAINS([Entity], &quot;Peru&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Venezuela&quot;) OR CONTAINS([Entity], &quot;Uruguay&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Ecuador&quot;) OR CONTAINS([Entity], &quot;Bolivia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Paraguay&quot;) OR CONTAINS([Entity], &quot;Cuba&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Dominican Republic&quot;) OR CONTAINS([Entity], &quot;Guatemala&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Honduras&quot;) OR CONTAINS([Entity], &quot;Nicaragua&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Costa Rica&quot;) OR CONTAINS([Entity], &quot;Panama&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;El Salvador&quot;) OR CONTAINS([Entity], &quot;Haiti&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Jamaica&quot;) OR CONTAINS([Entity], &quot;Trinidad&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Bahamas&quot;) OR CONTAINS([Entity], &quot;Barbados&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Belize&quot;) OR CONTAINS([Entity], &quot;Guyana&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Suriname&quot;) OR CONTAINS([Entity], &quot;Puerto Rico&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Guadeloupe&quot;) OR CONTAINS([Entity], &quot;Martinique&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;French Guiana&quot;) OR CONTAINS([Entity], &quot;Aruba&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Curacao&quot;) OR CONTAINS([Entity], &quot;Bonaire&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Anguilla&quot;) OR CONTAINS([Entity], &quot;Antigua&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Dominica&quot;) OR CONTAINS([Entity], &quot;Grenada&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Saint Kitts&quot;) OR CONTAINS([Entity], &quot;Saint Lucia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Saint Vincent&quot;) OR CONTAINS([Entity], &quot;Saint Martin&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Saint Barthelemy&quot;) OR CONTAINS([Entity], &quot;Sint Maarten&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cayman Islands&quot;) OR CONTAINS([Entity], &quot;British Virgin&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Turks and Caicos&quot;) OR CONTAINS([Entity], &quot;Montserrat&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Falkland Islands&quot;) THEN &quot;Latin America &amp; Caribbean&quot;&#13;&#10;&#13;&#10;// OCEANÍA&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Australia&quot;) OR CONTAINS([Entity], &quot;New Zealand&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Papua New Guinea&quot;) OR CONTAINS([Entity], &quot;Fiji&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Solomon Islands&quot;) OR CONTAINS([Entity], &quot;Vanuatu&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;New Caledonia&quot;) OR CONTAINS([Entity], &quot;French Polynesia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Samoa&quot;) OR CONTAINS([Entity], &quot;American Samoa&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Guam&quot;) OR CONTAINS([Entity], &quot;Kiribati&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Marshall Islands&quot;) OR CONTAINS([Entity], &quot;Micronesia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Nauru&quot;) OR CONTAINS([Entity], &quot;Palau&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Tonga&quot;) OR CONTAINS([Entity], &quot;Tuvalu&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cook Islands&quot;) OR CONTAINS([Entity], &quot;Niue&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Tokelau&quot;) OR CONTAINS([Entity], &quot;Wallis&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Northern Mariana&quot;) THEN &quot;Oceania&quot;&#13;&#10;&#13;&#10;// MEDIO ORIENTE&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Saudi Arabia&quot;) OR CONTAINS([Entity], &quot;Iran&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Iraq&quot;) OR CONTAINS([Entity], &quot;Turkey&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Israel&quot;) OR CONTAINS([Entity], &quot;Jordan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Lebanon&quot;) OR CONTAINS([Entity], &quot;Syria&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Yemen&quot;) OR CONTAINS([Entity], &quot;United Arab Emirates&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Kuwait&quot;) OR CONTAINS([Entity], &quot;Oman&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Qatar&quot;) OR CONTAINS([Entity], &quot;Bahrain&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Palestine&quot;) THEN &quot;Middle East&quot;&#13;&#10;&#13;&#10;// ASIA CENTRAL&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Kazakhstan&quot;) OR CONTAINS([Entity], &quot;Uzbekistan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Turkmenistan&quot;) OR CONTAINS([Entity], &quot;Tajikistan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Kyrgyzstan&quot;) THEN &quot;Central Asia&quot;&#13;&#10;&#13;&#10;ELSE &quot;Other&quot;&#13;&#10;END' />
+            </column>
+            <column caption='Años Ganados' datatype='real' name='[Calculation_1027665142458601476]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{ FIXED [Calculation_1027665142456176641] : &#13;&#10;  AVG(IF [Year] &gt;= 2020 THEN [Calculation_1027665142454919168] END) &#13;&#10;  - &#13;&#10;  AVG(IF [Year] &lt;= 1950 THEN [Calculation_1027665142454919168] END) &#13;&#10;}' />
+            </column>
+            <column caption='Categoría Crecimiento' datatype='string' name='[Calculation_1027665142458912773]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [Calculation_1027665142458601476] &gt;= 40 THEN &quot;Alto crecimiento (&gt;40 años)&quot;&#13;&#10;ELSEIF [Calculation_1027665142458601476] &gt;= 30 THEN &quot;Crecimiento moderado (30-40 años)&quot;&#13;&#10;ELSEIF [Calculation_1027665142458601476] &gt;= 20 THEN &quot;Crecimiento bajo (20-30 años)&quot;&#13;&#10;ELSE &quot;Crecimiento mínimo (&lt;20 años)&quot;&#13;&#10;END' />
+            </column>
+            <column caption='Promedio Años Ganados 1900' datatype='real' name='[Calculation_1027665142820704265]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='// Promedio 1900 (hasta 1900)&#13;&#10;{ FIXED [Entity], [Calculation_1027665142456176641]: &#13;&#10;  AVG(IF [Year] &lt;= 1900 THEN [Calculation_1027665142454919168] END)&#13;&#10;}' />
+            </column>
+            <column caption='Promedio Años Ganados 1950' datatype='real' name='[Calculation_1027665142821150730]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='// Promedio 1950 (1901-1950)&#13;&#10;{ FIXED [Entity], [Calculation_1027665142456176641]: &#13;&#10;  AVG(IF [Year] &gt; 1900 AND [Year] &lt;= 1950 THEN [Calculation_1027665142454919168] END)&#13;&#10;}' />
+            </column>
+            <column caption='Categoría Crecimiento 1950' datatype='string' name='[Calculation_1027665142821470219]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [Calculation_1027665142825021455] &gt;= 30 THEN &quot;Alto crecimiento (&gt;30 años)&quot;&#13;&#10;ELSEIF [Calculation_1027665142825021455] &gt;= 20 THEN &quot;Crecimiento moderado (20-30 años)&quot;&#13;&#10;ELSEIF [Calculation_1027665142825021455] &gt;= 10 THEN &quot;Crecimiento bajo (10-20 años)&quot;&#13;&#10;ELSE &quot;Crecimiento mínimo (&lt;10 años)&quot;&#13;&#10;END' />
+            </column>
+            <column caption='Promedio Años Ganados 2000' datatype='real' name='[Calculation_1027665142822326284]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='// Promedio 2000 (1951-2000)&#13;&#10;{ FIXED [Entity], [Calculation_1027665142456176641]: &#13;&#10;  AVG(IF [Year] &gt; 1950 AND [Year] &lt;= 2000 THEN [Calculation_1027665142454919168] END)&#13;&#10;}' />
+            </column>
+            <column caption='Categoría Crecimiento 2000' datatype='string' name='[Calculation_1027665142822588429]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [Calculation_1027665142826602512] &gt;= 30 THEN &quot;Alto crecimiento (&gt;30 años)&quot;&#13;&#10;ELSEIF [Calculation_1027665142826602512] &gt;= 20 THEN &quot;Crecimiento moderado (20-30 años)&quot;&#13;&#10;ELSEIF [Calculation_1027665142826602512] &gt;= 10 THEN &quot;Crecimiento bajo (10-20 años)&quot;&#13;&#10;ELSE &quot;Crecimiento mínimo (&lt;10 años)&quot;&#13;&#10;END' />
+            </column>
+            <column caption='Incrementos 1950' datatype='real' name='[Calculation_1027665142825021455]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='// Años Ganados 1950 (vs período anterior)&#13;&#10;[Calculation_1027665142821150730] - [Calculation_1027665142820704265]' />
+            </column>
+            <column caption='Incrementos 2000' datatype='real' name='[Calculation_1027665142826602512]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='// Años Ganados 1950 (vs período anterior)&#13;&#10;[Calculation_1027665142822326284] - [Calculation_1027665142821150730]' />
+            </column>
+            <column datatype='string' name='[Entity]' role='dimension' type='nominal' />
+            <column caption='Life expectancy' datatype='string' name='[Period life expectancy at birth]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+            <column-instance column='[Calculation_1027665142820704265]' derivation='Avg' name='[avg:Calculation_1027665142820704265:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1027665142822326284]' derivation='Avg' name='[avg:Calculation_1027665142822326284:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1027665142825021455]' derivation='Avg' name='[avg:Calculation_1027665142825021455:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1027665142456176641]' derivation='None' name='[none:Calculation_1027665142456176641:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1027665142458912773]' derivation='None' name='[none:Calculation_1027665142458912773:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1027665142821470219]' derivation='None' name='[none:Calculation_1027665142821470219:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1027665142822588429]' derivation='None' name='[none:Calculation_1027665142822588429:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Calculation_1027665142456176641:nk]' member='&quot;Africa&quot;' />
+              <groupfilter function='member' level='[none:Calculation_1027665142456176641:nk]' member='&quot;Central Asia&quot;' />
+              <groupfilter function='member' level='[none:Calculation_1027665142456176641:nk]' member='&quot;East Asia&quot;' />
+              <groupfilter function='member' level='[none:Calculation_1027665142456176641:nk]' member='&quot;Eastern Europe&quot;' />
+              <groupfilter function='member' level='[none:Calculation_1027665142456176641:nk]' member='&quot;Latin America &amp; Caribbean&quot;' />
+              <groupfilter function='member' level='[none:Calculation_1027665142456176641:nk]' member='&quot;Middle East&quot;' />
+              <groupfilter function='member' level='[none:Calculation_1027665142456176641:nk]' member='&quot;North America&quot;' />
+              <groupfilter function='member' level='[none:Calculation_1027665142456176641:nk]' member='&quot;Oceania&quot;' />
+              <groupfilter function='member' level='[none:Calculation_1027665142456176641:nk]' member='&quot;South Asia&quot;' />
+              <groupfilter function='member' level='[none:Calculation_1027665142456176641:nk]' member='&quot;Southeast Asia&quot;' />
+              <groupfilter function='member' level='[none:Calculation_1027665142456176641:nk]' member='&quot;Western Europe&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <_.fcp.VizExtensions.false...mark class='Automatic' />
+            <_.fcp.VizExtensions.true...mark class='VizExtension' />
+            <_.fcp.VizExtensions.true...add-in add-in-id='com.tableau.extension.sankey' extension-url='https://extensions.tableauusercontent.com/sandbox/sankey/sankey.html' extension-version='1.5.0' instance-id='7B18168D02954594B52F37F50E5CD7FE'>
+              <instance-settings />
+              <type-settings>
+                <worksheet />
+              </type-settings>
+            </_.fcp.VizExtensions.true...add-in>
+            <encodings>
+              <_.fcp.VizExtensions.false...lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{FF4E45BF-3BEB-449D-8312-1FCF31D5EB9B}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]' />
+              <_.fcp.VizExtensions.true...custom _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{FF4E45BF-3BEB-449D-8312-1FCF31D5EB9B}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]' custom-type-name='level' />
+              <lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{2DDD2622-33DE-4156-A406-7D9EF006D8A6}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1027665142820704265:qk]' />
+              <_.fcp.VizExtensions.false...lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{0BC48279-9349-40EC-B716-C3B5BDF6CB86}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142458912773:nk]' />
+              <_.fcp.VizExtensions.true...custom _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{0BC48279-9349-40EC-B716-C3B5BDF6CB86}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142458912773:nk]' custom-type-name='level' />
+              <lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{4ABA6499-1A41-4D20-9461-14BC8624F7E3}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1027665142825021455:qk]' />
+              <_.fcp.VizExtensions.false...lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{AE2DC289-AB74-4764-89E0-DC3467CF89D2}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142821470219:nk]' />
+              <_.fcp.VizExtensions.true...custom _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{AE2DC289-AB74-4764-89E0-DC3467CF89D2}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142821470219:nk]' custom-type-name='level' />
+              <lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{C1D4A606-5813-41FD-B11E-F15FFFD027E1}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1027665142822326284:qk]' />
+              <_.fcp.VizExtensions.false...lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{1B248F1D-AB1C-4CCB-BF6F-1EEC88DF2E6E}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142822588429:nk]' />
+              <_.fcp.VizExtensions.true...custom _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{1B248F1D-AB1C-4CCB-BF6F-1EEC88DF2E6E}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142822588429:nk]' custom-type-name='level' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{F73B620C-0393-4692-BB3F-741B3547F8C8}' />
+    </worksheet>
+    <worksheet name='Hoja 1'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{C0C8818B-76F0-4CB6-ACA9-89D3931B329B}' />
+    </worksheet>
+    <worksheet name='Hyperbolic Tree'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='life-expectancy' name='federated.0rxc3le1w9nzpm12l4iqx0ty9tkp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0rxc3le1w9nzpm12l4iqx0ty9tkp'>
+            <column caption='Calculated Life Expectancy' datatype='real' name='[Calculation_1027665142454919168]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='FLOAT(REPLACE([Period life expectancy at birth], &quot;,&quot;, &quot;.&quot;))' />
+            </column>
+            <column caption='Región' datatype='string' name='[Calculation_1027665142456176641]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='// ÁFRICA&#13;&#10;IF CONTAINS([Entity], &quot;Nigeria&quot;) OR CONTAINS([Entity], &quot;Ethiopia&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Egypt&quot;) OR CONTAINS([Entity], &quot;Congo&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;South Africa&quot;) OR CONTAINS([Entity], &quot;Kenya&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Tanzania&quot;) OR CONTAINS([Entity], &quot;Uganda&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Algeria&quot;) OR CONTAINS([Entity], &quot;Sudan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Morocco&quot;) OR CONTAINS([Entity], &quot;Ghana&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Mozambique&quot;) OR CONTAINS([Entity], &quot;Madagascar&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cameroon&quot;) OR CONTAINS([Entity], &quot;Angola&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Mali&quot;) OR CONTAINS([Entity], &quot;Niger&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Senegal&quot;) OR CONTAINS([Entity], &quot;Somalia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Chad&quot;) OR CONTAINS([Entity], &quot;Zimbabwe&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Benin&quot;) OR CONTAINS([Entity], &quot;Burundi&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Burkina Faso&quot;) OR CONTAINS([Entity], &quot;Botswana&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cape Verde&quot;) OR CONTAINS([Entity], &quot;Central African Republic&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Comoros&quot;) OR CONTAINS([Entity], &quot;Cote&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Djibouti&quot;) OR CONTAINS([Entity], &quot;Equatorial Guinea&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Eritrea&quot;) OR CONTAINS([Entity], &quot;Eswatini&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Gabon&quot;) OR CONTAINS([Entity], &quot;Guinea&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Lesotho&quot;) OR CONTAINS([Entity], &quot;Liberia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Libya&quot;) OR CONTAINS([Entity], &quot;Malawi&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Mauritania&quot;) OR CONTAINS([Entity], &quot;Mauritius&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Mayotte&quot;) OR CONTAINS([Entity], &quot;Namibia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Reunion&quot;) OR CONTAINS([Entity], &quot;Rwanda&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Sao Tome&quot;) OR CONTAINS([Entity], &quot;Seychelles&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Sierra Leone&quot;) OR CONTAINS([Entity], &quot;Togo&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Tunisia&quot;) OR CONTAINS([Entity], &quot;Western Sahara&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Zambia&quot;) THEN &quot;Africa&quot;&#13;&#10;&#13;&#10;// SUR DE ASIA&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Afghanistan&quot;) OR CONTAINS([Entity], &quot;Bangladesh&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;India&quot;) OR CONTAINS([Entity], &quot;Pakistan&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Nepal&quot;) OR CONTAINS([Entity], &quot;Sri Lanka&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Bhutan&quot;) OR CONTAINS([Entity], &quot;Maldives&quot;) THEN &quot;South Asia&quot;&#13;&#10;&#13;&#10;// ESTE DE ASIA&#13;&#10;ELSEIF CONTAINS([Entity], &quot;China&quot;) OR CONTAINS([Entity], &quot;Japan&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;South Korea&quot;) OR CONTAINS([Entity], &quot;North Korea&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Taiwan&quot;) OR CONTAINS([Entity], &quot;Mongolia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Hong Kong&quot;) OR CONTAINS([Entity], &quot;Macao&quot;) THEN &quot;East Asia&quot;&#13;&#10;&#13;&#10;// SUDESTE ASIÁTICO&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Indonesia&quot;) OR CONTAINS([Entity], &quot;Thailand&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Vietnam&quot;) OR CONTAINS([Entity], &quot;Philippines&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Malaysia&quot;) OR CONTAINS([Entity], &quot;Singapore&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cambodia&quot;) OR CONTAINS([Entity], &quot;Laos&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Myanmar&quot;) OR CONTAINS([Entity], &quot;Brunei&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;East Timor&quot;) THEN &quot;Southeast Asia&quot;&#13;&#10;&#13;&#10;// EUROPA OCCIDENTAL&#13;&#10;ELSEIF CONTAINS([Entity], &quot;France&quot;) OR CONTAINS([Entity], &quot;Germany&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;United Kingdom&quot;) OR CONTAINS([Entity], &quot;Italy&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Spain&quot;) OR CONTAINS([Entity], &quot;Netherlands&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Belgium&quot;) OR CONTAINS([Entity], &quot;Switzerland&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Austria&quot;) OR CONTAINS([Entity], &quot;Portugal&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Sweden&quot;) OR CONTAINS([Entity], &quot;Norway&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Denmark&quot;) OR CONTAINS([Entity], &quot;Finland&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Ireland&quot;) OR CONTAINS([Entity], &quot;Greece&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Iceland&quot;) OR CONTAINS([Entity], &quot;Luxembourg&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Malta&quot;) OR CONTAINS([Entity], &quot;Monaco&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Liechtenstein&quot;) OR CONTAINS([Entity], &quot;San Marino&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Vatican&quot;) OR CONTAINS([Entity], &quot;Andorra&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;England&quot;) OR CONTAINS([Entity], &quot;Scotland&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Gibraltar&quot;) OR CONTAINS([Entity], &quot;Faroe Islands&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Greenland&quot;) OR CONTAINS([Entity], &quot;Isle of Man&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Jersey&quot;) OR CONTAINS([Entity], &quot;Guernsey&quot;) THEN &quot;Western Europe&quot;&#13;&#10;&#13;&#10;// EUROPA ORIENTAL&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Poland&quot;) OR CONTAINS([Entity], &quot;Russia&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Ukraine&quot;) OR CONTAINS([Entity], &quot;Romania&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Czech&quot;) OR CONTAINS([Entity], &quot;Hungary&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Bulgaria&quot;) OR CONTAINS([Entity], &quot;Serbia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Belarus&quot;) OR CONTAINS([Entity], &quot;Croatia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Bosnia&quot;) OR CONTAINS([Entity], &quot;Albania&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Lithuania&quot;) OR CONTAINS([Entity], &quot;Latvia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Estonia&quot;) OR CONTAINS([Entity], &quot;Slovenia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Slovakia&quot;) OR CONTAINS([Entity], &quot;Macedonia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Moldova&quot;) OR CONTAINS([Entity], &quot;Montenegro&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Kosovo&quot;) OR CONTAINS([Entity], &quot;Cyprus&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Armenia&quot;) OR CONTAINS([Entity], &quot;Azerbaijan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Georgia&quot;) THEN &quot;Eastern Europe&quot;&#13;&#10;&#13;&#10;// NORTEAMÉRICA&#13;&#10;ELSEIF CONTAINS([Entity], &quot;United States&quot;) OR CONTAINS([Entity], &quot;Canada&quot;) THEN &quot;North America&quot;&#13;&#10;&#13;&#10;// LATINOAMÉRICA Y CARIBE&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Mexico&quot;) OR CONTAINS([Entity], &quot;Brazil&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Argentina&quot;) OR CONTAINS([Entity], &quot;Chile&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Colombia&quot;) OR CONTAINS([Entity], &quot;Peru&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Venezuela&quot;) OR CONTAINS([Entity], &quot;Uruguay&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Ecuador&quot;) OR CONTAINS([Entity], &quot;Bolivia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Paraguay&quot;) OR CONTAINS([Entity], &quot;Cuba&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Dominican Republic&quot;) OR CONTAINS([Entity], &quot;Guatemala&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Honduras&quot;) OR CONTAINS([Entity], &quot;Nicaragua&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Costa Rica&quot;) OR CONTAINS([Entity], &quot;Panama&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;El Salvador&quot;) OR CONTAINS([Entity], &quot;Haiti&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Jamaica&quot;) OR CONTAINS([Entity], &quot;Trinidad&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Bahamas&quot;) OR CONTAINS([Entity], &quot;Barbados&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Belize&quot;) OR CONTAINS([Entity], &quot;Guyana&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Suriname&quot;) OR CONTAINS([Entity], &quot;Puerto Rico&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Guadeloupe&quot;) OR CONTAINS([Entity], &quot;Martinique&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;French Guiana&quot;) OR CONTAINS([Entity], &quot;Aruba&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Curacao&quot;) OR CONTAINS([Entity], &quot;Bonaire&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Anguilla&quot;) OR CONTAINS([Entity], &quot;Antigua&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Dominica&quot;) OR CONTAINS([Entity], &quot;Grenada&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Saint Kitts&quot;) OR CONTAINS([Entity], &quot;Saint Lucia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Saint Vincent&quot;) OR CONTAINS([Entity], &quot;Saint Martin&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Saint Barthelemy&quot;) OR CONTAINS([Entity], &quot;Sint Maarten&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cayman Islands&quot;) OR CONTAINS([Entity], &quot;British Virgin&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Turks and Caicos&quot;) OR CONTAINS([Entity], &quot;Montserrat&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Falkland Islands&quot;) THEN &quot;Latin America &amp; Caribbean&quot;&#13;&#10;&#13;&#10;// OCEANÍA&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Australia&quot;) OR CONTAINS([Entity], &quot;New Zealand&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Papua New Guinea&quot;) OR CONTAINS([Entity], &quot;Fiji&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Solomon Islands&quot;) OR CONTAINS([Entity], &quot;Vanuatu&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;New Caledonia&quot;) OR CONTAINS([Entity], &quot;French Polynesia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Samoa&quot;) OR CONTAINS([Entity], &quot;American Samoa&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Guam&quot;) OR CONTAINS([Entity], &quot;Kiribati&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Marshall Islands&quot;) OR CONTAINS([Entity], &quot;Micronesia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Nauru&quot;) OR CONTAINS([Entity], &quot;Palau&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Tonga&quot;) OR CONTAINS([Entity], &quot;Tuvalu&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cook Islands&quot;) OR CONTAINS([Entity], &quot;Niue&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Tokelau&quot;) OR CONTAINS([Entity], &quot;Wallis&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Northern Mariana&quot;) THEN &quot;Oceania&quot;&#13;&#10;&#13;&#10;// MEDIO ORIENTE&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Saudi Arabia&quot;) OR CONTAINS([Entity], &quot;Iran&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Iraq&quot;) OR CONTAINS([Entity], &quot;Turkey&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Israel&quot;) OR CONTAINS([Entity], &quot;Jordan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Lebanon&quot;) OR CONTAINS([Entity], &quot;Syria&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Yemen&quot;) OR CONTAINS([Entity], &quot;United Arab Emirates&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Kuwait&quot;) OR CONTAINS([Entity], &quot;Oman&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Qatar&quot;) OR CONTAINS([Entity], &quot;Bahrain&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Palestine&quot;) THEN &quot;Middle East&quot;&#13;&#10;&#13;&#10;// ASIA CENTRAL&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Kazakhstan&quot;) OR CONTAINS([Entity], &quot;Uzbekistan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Turkmenistan&quot;) OR CONTAINS([Entity], &quot;Tajikistan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Kyrgyzstan&quot;) THEN &quot;Central Asia&quot;&#13;&#10;&#13;&#10;ELSE &quot;Other&quot;&#13;&#10;END' />
+            </column>
+            <column caption='Años Ganados' datatype='real' name='[Calculation_1027665142458601476]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{ FIXED [Calculation_1027665142456176641] : &#13;&#10;  AVG(IF [Year] &gt;= 2020 THEN [Calculation_1027665142454919168] END) &#13;&#10;  - &#13;&#10;  AVG(IF [Year] &lt;= 1950 THEN [Calculation_1027665142454919168] END) &#13;&#10;}' />
+            </column>
+            <column caption='Categoría Crecimiento' datatype='string' name='[Calculation_1027665142458912773]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [Calculation_1027665142458601476] &gt;= 40 THEN &quot;Alto crecimiento (&gt;40 años)&quot;&#13;&#10;ELSEIF [Calculation_1027665142458601476] &gt;= 30 THEN &quot;Crecimiento moderado (30-40 años)&quot;&#13;&#10;ELSEIF [Calculation_1027665142458601476] &gt;= 20 THEN &quot;Crecimiento bajo (20-30 años)&quot;&#13;&#10;ELSE &quot;Crecimiento mínimo (&lt;20 años)&quot;&#13;&#10;END' />
+            </column>
+            <column aggregation='Avg' caption='Años Ganados x País' datatype='real' name='[Calculation_1448188758054383616]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{ FIXED [Entity]: &#13;&#10;  MAX([Calculation_1027665142454919168]) - MIN([Calculation_1027665142454919168])&#13;&#10;}' />
+            </column>
+            <column caption='Mundo' datatype='string' name='[Calculation_1448188758230417409]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='&quot;Mundo&quot;' />
+            </column>
+            <column datatype='string' name='[Entity]' role='dimension' type='nominal' />
+            <column caption='Life expectancy' datatype='string' name='[Period life expectancy at birth]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+            <column-instance column='[Calculation_1448188758054383616]' derivation='Avg' name='[avg:Calculation_1448188758054383616:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1027665142456176641]' derivation='None' name='[none:Calculation_1027665142456176641:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1027665142458912773]' derivation='None' name='[none:Calculation_1027665142458912773:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1448188758230417409]' derivation='None' name='[none:Calculation_1448188758230417409:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Entity]' derivation='None' name='[none:Entity:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]'>
+            <groupfilter function='level-members' level='[none:Calculation_1027665142456176641:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142458912773:nk]'>
+            <groupfilter function='member' level='[none:Calculation_1027665142458912773:nk]' member='&quot;Crecimiento mínimo (&lt;20 años)&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:Entity:nk]' />
+              <groupfilter function='union'>
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Africa&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Americas&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Asia&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Congo&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Europe&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;High-and-upper-middle-income countries&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;High-income countries&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Land-locked Developing Countries (LLDC)&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Latin America and the Caribbean&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Least developed countries&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Less developed regions&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Less developed regions, excluding China&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Less developed regions, excluding least developed countries&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Low-and-Lower-middle-income countries&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Low-and-middle-income countries&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Low-income countries&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Lower-middle-income countries&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Middle-income countries&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;More developed regions&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;No income group available&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Oceania&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Small Island Developing States (SIDS)&quot;' />
+                <groupfilter function='member' level='[none:Entity:nk]' member='&quot;Upper-middle-income countries&quot;' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</column>
+            <column>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142458912773:nk]</column>
+            <column>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <_.fcp.VizExtensions.false...mark class='Automatic' />
+            <_.fcp.VizExtensions.true...mark class='VizExtension' />
+            <_.fcp.VizExtensions.true...add-in add-in-id='com.ladataviz.extension.tree2.0' extension-url='https://partner-extensions.tableauusercontent.com/viz/ladataviz/all/tree.html' extension-version='1.0.0' instance-id='E58182F287EC494D922F2AAD770F4B85'>
+              <instance-settings>
+                <setting key='vizConfig' value='{&quot;layoutOrientation&quot;:&quot;radial&quot;,&quot;showTreeRoot&quot;:true,&quot;treeHasFakeRoot&quot;:false,&quot;rootName&quot;:&quot;root&quot;,&quot;padding&quot;:[1],&quot;opacity&quot;:[0.8],&quot;sizeType&quot;:&quot;field&quot;,&quot;constantNodeSize&quot;:[10],&quot;sizeArray&quot;:[3,40],&quot;linkStyle&quot;:&quot;curved&quot;,&quot;linkWidth&quot;:[1],&quot;nodesColor&quot;:&quot;#4E79A7&quot;,&quot;linksColor&quot;:&quot;black&quot;,&quot;rotationAngle&quot;:[0],&quot;addX&quot;:[0],&quot;addY&quot;:[0],&quot;colorLevel&quot;:0,&quot;paddingArray&quot;:[[0],[0],[0],[0]],&quot;backgroundColor&quot;:&quot;#ffffff&quot;,&quot;fitWidth&quot;:true,&quot;fitHeight&quot;:true,&quot;fixedWidth&quot;:[952],&quot;fixedHeight&quot;:[766],&quot;displayLabels&quot;:true,&quot;labelFontSize&quot;:[12],&quot;labelFontColor&quot;:&quot;#000000&quot;,&quot;labelStrokeWidth&quot;:[3],&quot;labelStrokeColor&quot;:&quot;#ffffff&quot;,&quot;labelWeight&quot;:&quot;normal&quot;,&quot;labelMatchColor&quot;:false,&quot;labelLocale&quot;:&quot;auto&quot;,&quot;labelStyle&quot;:&quot;number&quot;,&quot;labelNotation&quot;:&quot;standard&quot;,&quot;labelCompactDisplay&quot;:&quot;short&quot;,&quot;labelDecimals&quot;:[0],&quot;labelPrefix&quot;:&quot;&quot;,&quot;labelSuffix&quot;:&quot;&quot;,&quot;labelPixelOrPoint&quot;:&quot;px&quot;,&quot;colorRole&quot;:&quot;dimension&quot;,&quot;colorName&quot;:&quot;Región&quot;,&quot;colorOn&quot;:&quot;nodes&quot;,&quot;discreteOption&quot;:&quot;schemeTableau10&quot;,&quot;discreteColorPalette&quot;:[&quot;#4e79a7&quot;,&quot;#f28e2c&quot;,&quot;#e15759&quot;,&quot;#76b7b2&quot;,&quot;#59a14f&quot;,&quot;#edc949&quot;,&quot;#af7aa1&quot;,&quot;#ff9da7&quot;,&quot;#9c755f&quot;,&quot;#bab0ab&quot;],&quot;uniqueColors&quot;:[&quot;Africa&quot;,&quot;East Asia&quot;,&quot;Eastern Europe&quot;,&quot;North America&quot;],&quot;displayLegend&quot;:false,&quot;legendBackgroundColor&quot;:&quot;#ffffff&quot;,&quot;legendFontColor&quot;:&quot;#313131&quot;,&quot;legendFrameColor&quot;:&quot;#f3f3f3&quot;,&quot;displayTooltip&quot;:true}' />
+              </instance-settings>
+              <type-settings>
+                <worksheet />
+              </type-settings>
+            </_.fcp.VizExtensions.true...add-in>
+            <encodings>
+              <lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{E272FBBD-BF0C-4E31-B697-92CE222A974D}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]' />
+              <lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{DE656EBF-37F0-4D1E-80C2-CC22067182BA}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]' />
+              <_.fcp.VizExtensions.false...lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{534FD1D0-7292-49D7-8B62-F2893F9F2C16}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]' />
+              <_.fcp.VizExtensions.true...custom _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{534FD1D0-7292-49D7-8B62-F2893F9F2C16}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]' custom-type-name='color' />
+              <_.fcp.VizExtensions.false...lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{E1BAB1DB-0981-4D52-9590-551D39D81480}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]' />
+              <_.fcp.VizExtensions.true...custom _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{E1BAB1DB-0981-4D52-9590-551D39D81480}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]' custom-type-name='size' />
+              <lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{21420238-C29E-47E4-A45C-9FFF465EB694}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{67659171-CE83-4374-9E02-14C8AFE88E19}' />
+    </worksheet>
+    <worksheet name='Sankey Diagram'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='life-expectancy' name='federated.0rxc3le1w9nzpm12l4iqx0ty9tkp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0rxc3le1w9nzpm12l4iqx0ty9tkp'>
+            <column caption='Calculated Life Expectancy' datatype='real' name='[Calculation_1027665142454919168]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='FLOAT(REPLACE([Period life expectancy at birth], &quot;,&quot;, &quot;.&quot;))' />
+            </column>
+            <column caption='Región' datatype='string' name='[Calculation_1027665142456176641]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='// ÁFRICA&#13;&#10;IF CONTAINS([Entity], &quot;Nigeria&quot;) OR CONTAINS([Entity], &quot;Ethiopia&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Egypt&quot;) OR CONTAINS([Entity], &quot;Congo&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;South Africa&quot;) OR CONTAINS([Entity], &quot;Kenya&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Tanzania&quot;) OR CONTAINS([Entity], &quot;Uganda&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Algeria&quot;) OR CONTAINS([Entity], &quot;Sudan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Morocco&quot;) OR CONTAINS([Entity], &quot;Ghana&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Mozambique&quot;) OR CONTAINS([Entity], &quot;Madagascar&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cameroon&quot;) OR CONTAINS([Entity], &quot;Angola&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Mali&quot;) OR CONTAINS([Entity], &quot;Niger&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Senegal&quot;) OR CONTAINS([Entity], &quot;Somalia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Chad&quot;) OR CONTAINS([Entity], &quot;Zimbabwe&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Benin&quot;) OR CONTAINS([Entity], &quot;Burundi&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Burkina Faso&quot;) OR CONTAINS([Entity], &quot;Botswana&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cape Verde&quot;) OR CONTAINS([Entity], &quot;Central African Republic&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Comoros&quot;) OR CONTAINS([Entity], &quot;Cote&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Djibouti&quot;) OR CONTAINS([Entity], &quot;Equatorial Guinea&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Eritrea&quot;) OR CONTAINS([Entity], &quot;Eswatini&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Gabon&quot;) OR CONTAINS([Entity], &quot;Guinea&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Lesotho&quot;) OR CONTAINS([Entity], &quot;Liberia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Libya&quot;) OR CONTAINS([Entity], &quot;Malawi&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Mauritania&quot;) OR CONTAINS([Entity], &quot;Mauritius&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Mayotte&quot;) OR CONTAINS([Entity], &quot;Namibia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Reunion&quot;) OR CONTAINS([Entity], &quot;Rwanda&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Sao Tome&quot;) OR CONTAINS([Entity], &quot;Seychelles&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Sierra Leone&quot;) OR CONTAINS([Entity], &quot;Togo&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Tunisia&quot;) OR CONTAINS([Entity], &quot;Western Sahara&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Zambia&quot;) THEN &quot;Africa&quot;&#13;&#10;&#13;&#10;// SUR DE ASIA&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Afghanistan&quot;) OR CONTAINS([Entity], &quot;Bangladesh&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;India&quot;) OR CONTAINS([Entity], &quot;Pakistan&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Nepal&quot;) OR CONTAINS([Entity], &quot;Sri Lanka&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Bhutan&quot;) OR CONTAINS([Entity], &quot;Maldives&quot;) THEN &quot;South Asia&quot;&#13;&#10;&#13;&#10;// ESTE DE ASIA&#13;&#10;ELSEIF CONTAINS([Entity], &quot;China&quot;) OR CONTAINS([Entity], &quot;Japan&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;South Korea&quot;) OR CONTAINS([Entity], &quot;North Korea&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Taiwan&quot;) OR CONTAINS([Entity], &quot;Mongolia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Hong Kong&quot;) OR CONTAINS([Entity], &quot;Macao&quot;) THEN &quot;East Asia&quot;&#13;&#10;&#13;&#10;// SUDESTE ASIÁTICO&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Indonesia&quot;) OR CONTAINS([Entity], &quot;Thailand&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Vietnam&quot;) OR CONTAINS([Entity], &quot;Philippines&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Malaysia&quot;) OR CONTAINS([Entity], &quot;Singapore&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cambodia&quot;) OR CONTAINS([Entity], &quot;Laos&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Myanmar&quot;) OR CONTAINS([Entity], &quot;Brunei&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;East Timor&quot;) THEN &quot;Southeast Asia&quot;&#13;&#10;&#13;&#10;// EUROPA OCCIDENTAL&#13;&#10;ELSEIF CONTAINS([Entity], &quot;France&quot;) OR CONTAINS([Entity], &quot;Germany&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;United Kingdom&quot;) OR CONTAINS([Entity], &quot;Italy&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Spain&quot;) OR CONTAINS([Entity], &quot;Netherlands&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Belgium&quot;) OR CONTAINS([Entity], &quot;Switzerland&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Austria&quot;) OR CONTAINS([Entity], &quot;Portugal&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Sweden&quot;) OR CONTAINS([Entity], &quot;Norway&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Denmark&quot;) OR CONTAINS([Entity], &quot;Finland&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Ireland&quot;) OR CONTAINS([Entity], &quot;Greece&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Iceland&quot;) OR CONTAINS([Entity], &quot;Luxembourg&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Malta&quot;) OR CONTAINS([Entity], &quot;Monaco&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Liechtenstein&quot;) OR CONTAINS([Entity], &quot;San Marino&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Vatican&quot;) OR CONTAINS([Entity], &quot;Andorra&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;England&quot;) OR CONTAINS([Entity], &quot;Scotland&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Gibraltar&quot;) OR CONTAINS([Entity], &quot;Faroe Islands&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Greenland&quot;) OR CONTAINS([Entity], &quot;Isle of Man&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Jersey&quot;) OR CONTAINS([Entity], &quot;Guernsey&quot;) THEN &quot;Western Europe&quot;&#13;&#10;&#13;&#10;// EUROPA ORIENTAL&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Poland&quot;) OR CONTAINS([Entity], &quot;Russia&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Ukraine&quot;) OR CONTAINS([Entity], &quot;Romania&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Czech&quot;) OR CONTAINS([Entity], &quot;Hungary&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Bulgaria&quot;) OR CONTAINS([Entity], &quot;Serbia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Belarus&quot;) OR CONTAINS([Entity], &quot;Croatia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Bosnia&quot;) OR CONTAINS([Entity], &quot;Albania&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Lithuania&quot;) OR CONTAINS([Entity], &quot;Latvia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Estonia&quot;) OR CONTAINS([Entity], &quot;Slovenia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Slovakia&quot;) OR CONTAINS([Entity], &quot;Macedonia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Moldova&quot;) OR CONTAINS([Entity], &quot;Montenegro&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Kosovo&quot;) OR CONTAINS([Entity], &quot;Cyprus&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Armenia&quot;) OR CONTAINS([Entity], &quot;Azerbaijan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Georgia&quot;) THEN &quot;Eastern Europe&quot;&#13;&#10;&#13;&#10;// NORTEAMÉRICA&#13;&#10;ELSEIF CONTAINS([Entity], &quot;United States&quot;) OR CONTAINS([Entity], &quot;Canada&quot;) THEN &quot;North America&quot;&#13;&#10;&#13;&#10;// LATINOAMÉRICA Y CARIBE&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Mexico&quot;) OR CONTAINS([Entity], &quot;Brazil&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Argentina&quot;) OR CONTAINS([Entity], &quot;Chile&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Colombia&quot;) OR CONTAINS([Entity], &quot;Peru&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Venezuela&quot;) OR CONTAINS([Entity], &quot;Uruguay&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Ecuador&quot;) OR CONTAINS([Entity], &quot;Bolivia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Paraguay&quot;) OR CONTAINS([Entity], &quot;Cuba&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Dominican Republic&quot;) OR CONTAINS([Entity], &quot;Guatemala&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Honduras&quot;) OR CONTAINS([Entity], &quot;Nicaragua&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Costa Rica&quot;) OR CONTAINS([Entity], &quot;Panama&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;El Salvador&quot;) OR CONTAINS([Entity], &quot;Haiti&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Jamaica&quot;) OR CONTAINS([Entity], &quot;Trinidad&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Bahamas&quot;) OR CONTAINS([Entity], &quot;Barbados&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Belize&quot;) OR CONTAINS([Entity], &quot;Guyana&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Suriname&quot;) OR CONTAINS([Entity], &quot;Puerto Rico&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Guadeloupe&quot;) OR CONTAINS([Entity], &quot;Martinique&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;French Guiana&quot;) OR CONTAINS([Entity], &quot;Aruba&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Curacao&quot;) OR CONTAINS([Entity], &quot;Bonaire&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Anguilla&quot;) OR CONTAINS([Entity], &quot;Antigua&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Dominica&quot;) OR CONTAINS([Entity], &quot;Grenada&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Saint Kitts&quot;) OR CONTAINS([Entity], &quot;Saint Lucia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Saint Vincent&quot;) OR CONTAINS([Entity], &quot;Saint Martin&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Saint Barthelemy&quot;) OR CONTAINS([Entity], &quot;Sint Maarten&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cayman Islands&quot;) OR CONTAINS([Entity], &quot;British Virgin&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Turks and Caicos&quot;) OR CONTAINS([Entity], &quot;Montserrat&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Falkland Islands&quot;) THEN &quot;Latin America &amp; Caribbean&quot;&#13;&#10;&#13;&#10;// OCEANÍA&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Australia&quot;) OR CONTAINS([Entity], &quot;New Zealand&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Papua New Guinea&quot;) OR CONTAINS([Entity], &quot;Fiji&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Solomon Islands&quot;) OR CONTAINS([Entity], &quot;Vanuatu&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;New Caledonia&quot;) OR CONTAINS([Entity], &quot;French Polynesia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Samoa&quot;) OR CONTAINS([Entity], &quot;American Samoa&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Guam&quot;) OR CONTAINS([Entity], &quot;Kiribati&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Marshall Islands&quot;) OR CONTAINS([Entity], &quot;Micronesia&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Nauru&quot;) OR CONTAINS([Entity], &quot;Palau&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Tonga&quot;) OR CONTAINS([Entity], &quot;Tuvalu&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Cook Islands&quot;) OR CONTAINS([Entity], &quot;Niue&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Tokelau&quot;) OR CONTAINS([Entity], &quot;Wallis&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Northern Mariana&quot;) THEN &quot;Oceania&quot;&#13;&#10;&#13;&#10;// MEDIO ORIENTE&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Saudi Arabia&quot;) OR CONTAINS([Entity], &quot;Iran&quot;) OR &#13;&#10;   CONTAINS([Entity], &quot;Iraq&quot;) OR CONTAINS([Entity], &quot;Turkey&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Israel&quot;) OR CONTAINS([Entity], &quot;Jordan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Lebanon&quot;) OR CONTAINS([Entity], &quot;Syria&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Yemen&quot;) OR CONTAINS([Entity], &quot;United Arab Emirates&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Kuwait&quot;) OR CONTAINS([Entity], &quot;Oman&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Qatar&quot;) OR CONTAINS([Entity], &quot;Bahrain&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Palestine&quot;) THEN &quot;Middle East&quot;&#13;&#10;&#13;&#10;// ASIA CENTRAL&#13;&#10;ELSEIF CONTAINS([Entity], &quot;Kazakhstan&quot;) OR CONTAINS([Entity], &quot;Uzbekistan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Turkmenistan&quot;) OR CONTAINS([Entity], &quot;Tajikistan&quot;) OR&#13;&#10;   CONTAINS([Entity], &quot;Kyrgyzstan&quot;) THEN &quot;Central Asia&quot;&#13;&#10;&#13;&#10;ELSE &quot;Other&quot;&#13;&#10;END' />
+            </column>
+            <column caption='Años Ganados' datatype='real' name='[Calculation_1027665142458601476]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{ FIXED [Calculation_1027665142456176641] : &#13;&#10;  AVG(IF [Year] &gt;= 2020 THEN [Calculation_1027665142454919168] END) &#13;&#10;  - &#13;&#10;  AVG(IF [Year] &lt;= 1950 THEN [Calculation_1027665142454919168] END) &#13;&#10;}' />
+            </column>
+            <column caption='Categoría Crecimiento' datatype='string' name='[Calculation_1027665142458912773]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [Calculation_1027665142458601476] &gt;= 40 THEN &quot;Alto crecimiento (&gt;40 años)&quot;&#13;&#10;ELSEIF [Calculation_1027665142458601476] &gt;= 30 THEN &quot;Crecimiento moderado (30-40 años)&quot;&#13;&#10;ELSEIF [Calculation_1027665142458601476] &gt;= 20 THEN &quot;Crecimiento bajo (20-30 años)&quot;&#13;&#10;ELSE &quot;Crecimiento mínimo (&lt;20 años)&quot;&#13;&#10;END' />
+            </column>
+            <column datatype='string' name='[Entity]' role='dimension' type='nominal' />
+            <column caption='Life expectancy' datatype='string' name='[Period life expectancy at birth]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+            <column-instance column='[Calculation_1027665142456176641]' derivation='None' name='[none:Calculation_1027665142456176641:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1027665142458912773]' derivation='None' name='[none:Calculation_1027665142458912773:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1027665142458601476]' derivation='Sum' name='[sum:Calculation_1027665142458601476:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <_.fcp.VizExtensions.false...mark class='Automatic' />
+            <_.fcp.VizExtensions.true...mark class='VizExtension' />
+            <_.fcp.VizExtensions.true...add-in add-in-id='com.tableau.extension.sankey' extension-url='https://extensions.tableauusercontent.com/sandbox/sankey/sankey.html' extension-version='1.5.0' instance-id='D1224119DA9F4B8FB687BD7193AC80AF'>
+              <instance-settings />
+              <type-settings>
+                <worksheet />
+              </type-settings>
+            </_.fcp.VizExtensions.true...add-in>
+            <encodings>
+              <_.fcp.VizExtensions.false...lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{C8389726-70E1-4A55-A03D-DC8207CEC039}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]' />
+              <_.fcp.VizExtensions.true...custom _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{C8389726-70E1-4A55-A03D-DC8207CEC039}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]' custom-type-name='level' />
+              <_.fcp.VizExtensions.false...lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{E38FB030-9331-4CA6-B7BC-89CD0F94E1EE}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142458912773:nk]' />
+              <_.fcp.VizExtensions.true...custom _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{E38FB030-9331-4CA6-B7BC-89CD0F94E1EE}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142458912773:nk]' custom-type-name='level' />
+              <_.fcp.VizExtensions.false...lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{61129863-428D-417F-821B-9D67CB53814C}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[sum:Calculation_1027665142458601476:qk]' />
+              <_.fcp.VizExtensions.true...custom _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{61129863-428D-417F-821B-9D67CB53814C}' column='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[sum:Calculation_1027665142458601476:qk]' custom-type-name='edge' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{F5E3D06C-0AAD-4D9E-9C9A-D04F5EB27C04}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' name='Hoja 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{AF72E3C9-AD09-4442-BD4A-68CC72E23FCF}' />
+    </window>
+    <window class='worksheet' name='Sankey Diagram'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+            <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142458912773:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{E17CB698-7ED4-4CA7-9EB4-502DB2F615D6}' />
+    </window>
+    <window class='worksheet' name='Alluvial Diagram'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+            <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142458912773:nk]</field>
+            <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142817255431:nk]</field>
+            <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142817681416:nk]</field>
+            <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142821470219:nk]</field>
+            <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142822588429:nk]</field>
+            <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Çategoría Crecimiento (copia)_1027665142815203334:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{FBEED9A1-D102-472C-A908-E9FB5EC951CC}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Hyperbolic Tree'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='247'>
+            <card param='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]' type='filter' />
+            <card param='[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142458912773:nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <selection-collection>
+          <tuple-selection>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>34.495200000000004</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;Wallis and Futuna&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>29.288000000000004</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;Vanuatu&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>27.097999999999999</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;Tuvalu&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>24.518799999999999</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;Tonga&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>22.359299999999998</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;Tokelau&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>29.098699999999994</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;Solomon Islands&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>22.502400000000002</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;Samoa&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>16.594200000000008</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;Palau&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>20.593000000000004</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;Northern Mariana Islands&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>15.412199999999999</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;Niue&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>13.852800000000002</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;New Zealand&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>33.6706</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;New Caledonia&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>5.5</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;Nauru&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>18.842800000000004</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;Micronesia (country)&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>14.334500000000006</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;Marshall Islands&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>20.751899999999999</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;Kiribati&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>17.640799999999999</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;Guam&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>32.210700000000003</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;French Polynesia&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>15.608000000000004</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;Fiji&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>37.332000000000001</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;Cook Islands&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>34.872799999999998</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;Australia&quot;</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[avg:Calculation_1448188758054383616:qk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+                  <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>14.567899999999995</value>
+                <value>&quot;Oceania&quot;</value>
+                <value>&quot;Mundo&quot;</value>
+                <value>&quot;American Samoa&quot;</value>
+              </tuple>
+            </tuple-reference>
+          </tuple-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142456176641:nk]</field>
+            <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1027665142458912773:nk]</field>
+            <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Calculation_1448188758230417409:nk]</field>
+            <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Entity:nk]</field>
+            <field>[federated.0rxc3le1w9nzpm12l4iqx0ty9tkp].[none:Year:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{D9D3B942-CCCA-40DF-8148-AD8E0785EE7C}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Alluvial Diagram' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
+      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
+      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
+      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
+      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
+      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
+      fBUOM1sAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Hoja 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
+      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
+      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
+      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
+      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
+      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
+      fBUOM1sAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Hyperbolic Tree' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAGlklEQVR4nO3Y228bZh3G8ceOc3TiJm7qHJo6cdakJ9aWbYz1wLZOFZkmTQJuQEjcISGE
+      AGkXCCSkBa4A7YKLol0ghAChiiFRJCYQ09g6TQhYpi3NGEmaNiVpDrYTO3bsOHbiA3/DLkgF
+      z/dz/+r9ST9934s30Gg0GgJMBR/0AMCDRACwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCw
+      RgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCw
+      RgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCw
+      RgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCw
+      RgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCw
+      RgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCw1jQ5OTn5oIf4X7C1saxvfvdF
+      hbv71FStaPrV61qLxHT/d6+pZ3RQuZ2KivlNVfdrUiCocqmqUmlHqXRWLcGqsvlddbS3anlp
+      SQpKtYZU3SkpmUqpuSWkmzf+rHx9UAoU1BVu1/rqqvbrde1Vqsrl08rvVBSsVpQvVpTPbenm
+      K79QLD6qjUxWe7Vd7VYbevXX76t/KKTSXlWZdEptnZ3aLWypUNzVfn1f8x/O6K8LBXUHd6VG
+      Q8lkUlJDmWxBqdszqkqq1kNKJtfVHGxWMr2hgGrK5Evq6mzV/eUVvfKnGR2JBNXZFVF5e1u7
+      lZTeW1hSfb+uYCOkSqOs4lZO5b2afnzthjoHYqoUC9ovF7VXCyifWdfS8oeqdxxSIbutSrGo
+      fHFX1XJBlX1pI7mm1o4uhZoO5m0OHcgt/wd6jsSVOH1anxyN6gc//L5WU2lNRNv19z++q7/c
+      uatiV0BxlZRM3dLVz3xbd6brSu+sKto/o8VcXOP72/ri17+ql396U+HwtB669FmtXLumZDyu
+      rVq/roxH9cuf/UjDrdI3vvM5vfjSr/TYQyN6e2pRx66GNFQ/rNxGjwZqJd1KR3Shd03zH7yt
+      l3/+lvaj3Xpp8gXlMru68ZvrWplbUCEU0Zdf+JZe/8n3lA6PKlCc07HzE0pm5/TGb6fVt7Op
+      wYtP6v35tI4l+nU69Y42h57R2vSU2sdPamr2dR2NHFM4HFXv0LCev3hUb/yrord+f13/nOrV
+      Fz7/Fc1+8AdVQ2u6fbugto6TGmg6q9oTC+qY39Z7K+3K3s8r8fGk7t36m/oCGc1k5nVufELl
+      xi3l33xHA42SZpaCak80Kzw3KyVGtLme1pe+NqnzicMHslcC+AjOjo9rO1fWyJnLGhzb1E66
+      SVeee0aRWIuyLW3KLCzp9ImY5m5Pa/jUVQ3UDis+2qn2xYoa6V5JUjazqicuf0ord2aVePZ5
+      DYakrnCPsvkNTVy4pHBzVd1tw7pw7rzi/T3q6Dmqd7deUyT6qIbHmpTfOapPPzymga4+La9v
+      6vLl8wpE4xrsjmj8Y4e1mI3q5GPn1GjuUKm4pzNPXtJIMKZgZUBNbb2KhDs10lHXYHOb4p94
+      RG2t91RuSmlo+GnlNwsau/iUjp85oZ54QMFym+KxmJYzKfXEEmr5x5u6MnFVwUBAgyMxte4d
+      V73vkjq6F1Vd29ah8Ib+nWpVTyisx08d1+5wRfnFBZ19+FFtLczokceHVM+VFT10Qv3DR7R1
+      d1vPPT2kUldDgVhUbUdGlE0uaXF2SonEszp0ADsNNBqNxgHcA0m1alV37+U0Ptb7kc7NJmd1
+      qv/Uf2kqbwQAa/wCwRoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoB
+      wBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoB
+      wBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoB
+      wBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoB
+      wBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoBwBoB
+      wBoBwBoBwBoBwBoBwNp/AM2fxtMxOg2oAAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Sankey Diagram' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
+      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
+      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
+      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
+      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
+      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
+      fBUOM1sAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+  <_.fcp.VizExtensions.true...referenced-extensions>
+    <_.fcp.VizExtensions.true...referenced-extension>
+      <manifest manifest-version='0.1'>
+        <worksheet-extension extension-version='1.0.0' id='com.ladataviz.extension.tree2.0'>
+          <default-locale>en_US</default-locale>
+          <name resource-id='name' />
+          <description>Tree</description>
+          <author email='tristan@ladataviz.com' name='LaDataViz' organization='LaDataViz' website='https://www.ladataviz.com' />
+          <min-api-version>1.11</min-api-version>
+          <source-location>
+            <url>https://partner-extensions.tableauusercontent.com/viz/ladataviz/all/tree.html</url>
+          </source-location>
+          <icon />
+          <context-menu>
+            <configure-context-menu-item />
+          </context-menu>
+          <encoding id='size'>
+            <display-name>Size</display-name>
+            <data-spec>
+              <data-type>numeric</data-type>
+            </data-spec>
+            <role-spec>
+              <role-type>continuous-measure</role-type>
+            </role-spec>
+            <fields max-count='1' />
+            <encoding-icon token='size' />
+            <tooltip resource-id='tooltip-size'>Add a size to the nodes</tooltip>
+          </encoding>
+          <encoding id='color'>
+            <display-name>Color</display-name>
+            <role-spec>
+              <role-type>continuous-dimension</role-type>
+              <role-type>discrete-dimension</role-type>
+            </role-spec>
+            <fields max-count='1' />
+            <encoding-icon token='color' />
+          </encoding>
+        </worksheet-extension>
+        <resources>
+          <resource id='name'>
+            <text locale='en_US'>Tree</text>
+          </resource>
+        </resources>
+      </manifest>
+      <referenced-views>
+        <referenced-view instances='1' viewId='Hyperbolic Tree' />
+      </referenced-views>
+    </_.fcp.VizExtensions.true...referenced-extension>
+    <_.fcp.VizExtensions.true...referenced-extension>
+      <manifest manifest-version='0.1'>
+        <worksheet-extension extension-version='1.5.0' id='com.tableau.extension.sankey'>
+          <default-locale>en_US</default-locale>
+          <name resource-id='name' />
+          <description>Visualisation of flows between nodes (levels) with proportionally sized edges.</description>
+          <author email='github@tableau.com' name='tableau' organization='tableau' website='https://www.tableau.com' />
+          <min-api-version>1.11</min-api-version>
+          <source-location>
+            <url>https://extensions.tableauusercontent.com/sandbox/sankey/sankey.html</url>
+          </source-location>
+          <icon />
+          <context-menu>
+            <configure-context-menu-item />
+          </context-menu>
+          <encoding id='level'>
+            <display-name resource-id='level-id'>Level</display-name>
+            <role-spec>
+              <role-type>discrete-dimension</role-type>
+              <role-type>discrete-measure</role-type>
+            </role-spec>
+            <fields max-count='5' />
+            <encoding-icon token='level' />
+            <tooltip resource-id='level-id'>Level</tooltip>
+          </encoding>
+          <encoding id='edge'>
+            <display-name resource-id='edge-id'>Link</display-name>
+            <role-spec>
+              <role-type>continuous-dimension</role-type>
+              <role-type>continuous-measure</role-type>
+            </role-spec>
+            <fields max-count='1' />
+            <encoding-icon token='edge' />
+            <tooltip resource-id='edge-id'>Edge</tooltip>
+          </encoding>
+        </worksheet-extension>
+        <resources>
+          <resource id='edge-id'>
+            <text locale='de_DE'>Verbindungen</text>
+            <text locale='en_GB'>Link</text>
+            <text locale='en_US'>Link</text>
+            <text locale='es_ES'>Vínculos</text>
+            <text locale='fr_CA'>Lien</text>
+            <text locale='fr_FR'>Lien</text>
+            <text locale='it_IT'>Collegamento</text>
+            <text locale='ja_JP'>リンク</text>
+            <text locale='ko_KR'>링크</text>
+            <text locale='pt_BR'>Elos</text>
+            <text locale='sv_SE'>länkar</text>
+            <text locale='th_TH'>ลิงก์</text>
+            <text locale='zh_CN'>链接</text>
+            <text locale='zh_TW'>連結</text>
+          </resource>
+          <resource id='level-id'>
+            <text locale='de_DE'>Ebene</text>
+            <text locale='en_GB'>Level</text>
+            <text locale='en_US'>Level</text>
+            <text locale='es_ES'>nivel</text>
+            <text locale='fr_CA'>niveau</text>
+            <text locale='fr_FR'>niveau</text>
+            <text locale='it_IT'>livello</text>
+            <text locale='ja_JP'>レベル</text>
+            <text locale='ko_KR'>레벨</text>
+            <text locale='pt_BR'>nível</text>
+            <text locale='sv_SE'>nivå</text>
+            <text locale='th_TH'>ระดับ</text>
+            <text locale='zh_CN'>级别</text>
+            <text locale='zh_TW'>級別</text>
+          </resource>
+          <resource id='name'>
+            <text locale='en_US'>Sankey</text>
+            <text locale='ja_JP'>サンキー</text>
+            <text locale='zh_CN'>桑基图</text>
+          </resource>
+        </resources>
+      </manifest>
+      <referenced-views>
+        <referenced-view instances='1' viewId='Alluvial Diagram' />
+        <referenced-view instances='1' viewId='Sankey Diagram' />
+      </referenced-views>
+    </_.fcp.VizExtensions.true...referenced-extension>
+  </_.fcp.VizExtensions.true...referenced-extensions>
+</workbook>
